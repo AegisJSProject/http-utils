@@ -1,12 +1,12 @@
 const ENDPOINT = 'https://api.ipgeolocation.io/ipgeo';
-const ENV_NAME = 'IPGEOLOCATION';
+const ENV_NAME = 'IPGEOLOCATION_KEY';
 const cache = new Map();
 let warned = false;
 
 /**
  * Adds a `geo` object containing geoip data to the request context object.
  *
- * @param {string} [apiKey=process.env.IPGEOLOCATION] The API key for `api.ipgeolocation.io`, defaulting to one provided by an environment variable.
+ * @param {string} [apiKey=process.env.IPGEOLOCATION_KEY] The API key for `api.ipgeolocation.io`, defaulting to one provided by an environment variable.
  * @returns {Function} The middleware context modifying callback.
  */
 export function useGeo(apiKey = process.env[ENV_NAME]) {
@@ -65,3 +65,5 @@ export function useGeo(apiKey = process.env[ENV_NAME]) {
 		}
 	};
 }
+
+export default typeof process.env[ENV_NAME] === 'string' ? useGeo(process.env[ENV_NAME]) : () => null;

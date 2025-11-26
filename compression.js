@@ -16,4 +16,4 @@ export function useCompression(format = 'deflate') {
 
 export const useGzip = useCompression('gzip');
 export const useDeflate = useCompression('deflate');
-export default useCompression;
+export default useDeflate;

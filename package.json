@@ -24,7 +24,7 @@
   "private": false,
   "scripts": {
     "test": "npm run lint:js && npm run run:tests",
-    "start": "node --env-file-if-exists=.env node_modules/@shgysk8zer0/http-server/cli.js -c ./http.config.js",
+    "start": "node --experimental-import-meta-resolve --env-file-if-exists=.env node_modules/@shgysk8zer0/http-server/cli.js -c ./http.config.js",
     "startx": "NODE_OPTIONS='--env-file-if-exists=.env' http-server -c ./http.config.js",
     "preversion": "npm test && npm run build --if-present",
     "prepare": "npm test && npm run build --if-present",
@@ -59,12 +59,9 @@
   "homepage": "https://github.com/AegisJSProject/http-utils#readme",
   "devDependencies": {
     "@aegisjsproject/dev-server": "^1.0.3",
-    "@rollup/plugin-node-resolve": "^16.0.3",
-    "@rollup/plugin-terser": "^0.4.4",
     "@shgysk8zer0/eslint-config": "^1.0.4",
     "@shgysk8zer0/http-server": "^1.1.1",
     "@shgysk8zer0/importmap": "^1.4.88",
-    "eslint": "^9.39.1",
-    "rollup": "^4.53.3"
+    "eslint": "^9.39.1"
   }
 }
