@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [v1.0.1] - 2025-11-26
+
+### Added
+- Add default CSP using importmap and local package name
+
+### Changed
+- Update modules to have default exports for use as module specifiers
+
 ## [v1.0.0] - 2025-11-24
 
 Initial Release
