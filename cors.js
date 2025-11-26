@@ -20,3 +20,5 @@ export function useCORS({ allowCredentials = false } = {}) {
 		}
 	};
 }
+
+export default useCORS();
