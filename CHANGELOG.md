@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [v1.0.2] - 2025-12-09
+
+### Changed
+- Use `Importmap` for integrity and `<script type="importmap">` from `@shgysk8zer0/importmap`
+
 ## [v1.0.1] - 2025-11-26
 
 ### Added
