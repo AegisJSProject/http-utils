@@ -1,38 +1,17 @@
-import { readFile } from 'node:fs/promises';
-import { imports } from '@shgysk8zer0/importmap';
+import { Importmap } from '@shgysk8zer0/importmap';
 
-const pkg = JSON.parse(await readFile(process.cwd() + '/package.json', { encoding: 'utf8' }));
-
-export const importmap = typeof pkg.module === 'string'
-	? JSON.stringify({
-		imports: {
-			...imports,
-			[pkg.name]: pkg.module,
-			[`${pkg.name}/`]: './',
-		}
-	})
-	: JSON.stringify({
-		imports: {
-			...imports,
-			[`${pkg.name}/`]: './',
-		}
-	});
-
-const sri = async (input) => await Promise.resolve(input)
-	.then(json => new TextEncoder().encode(json))
-	.then(bytes => crypto.subtle.digest('SHA-384', bytes))
-	.then(hash => 'sha384-' + new Uint8Array(hash).toBase64());
-
-export const integrity = await sri(importmap);
+export const importmap = new Importmap();
+await importmap.importLocalPackage();
+export const integrity = await importmap.getIntegrity();
 
 export function useCSP(policy = { 'default-src': ['\'self\''] }) {
 	const policyStr = Object.entries(policy).map(([name, values]) => {
 		return `${name} ${Array.isArray(values) ? values.join(' ') : values}`;
 	}).join('; ');
 
-	return function (resp, { request }) {
-		if (request.destination === 'document' && ! resp.headers.has('Content-Security-Policy')) {
-			resp.headers.set('Content-Security-Policy', policyStr);
+	return function (response, { request }) {
+		if (request.destination === 'document' && ! response.headers.has('Content-Security-Policy')) {
+			response.headers.set('Content-Security-Policy', policyStr);
 		}
 	};
 }
@@ -61,4 +40,4 @@ export const useDefaultCSP = ({ ...rest } = {}) => useCSP({
 	...rest
 });
 
-export default useDefaultCSP;
+export default useDefaultCSP();

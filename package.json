@@ -1,6 +1,6 @@
 {
   "name": "@aegisjsproject/http-utils",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "HTTP Utilities for @shgysk8zer0/http-server ",
   "keywords": [],
   "type": "module",
@@ -25,7 +25,6 @@
   "scripts": {
     "test": "npm run lint:js && npm run run:tests",
     "start": "node --experimental-import-meta-resolve --env-file-if-exists=.env node_modules/@shgysk8zer0/http-server/cli.js -c ./http.config.js",
-    "startx": "NODE_OPTIONS='--env-file-if-exists=.env' http-server -c ./http.config.js",
     "preversion": "npm test && npm run build --if-present",
     "prepare": "npm test && npm run build --if-present",
     "lint:js": "eslint .",
@@ -58,10 +57,10 @@
   },
   "homepage": "https://github.com/AegisJSProject/http-utils#readme",
   "devDependencies": {
-    "@aegisjsproject/dev-server": "^1.0.3",
+    "@aegisjsproject/dev-server": "^1.0.5",
     "@shgysk8zer0/eslint-config": "^1.0.4",
     "@shgysk8zer0/http-server": "^1.1.1",
-    "@shgysk8zer0/importmap": "^1.4.88",
+    "@shgysk8zer0/importmap": "^1.5.1",
     "eslint": "^9.39.1"
   }
 }
