@@ -1,12 +1,36 @@
 {
   "name": "@aegisjsproject/http-utils",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "HTTP Utilities for @shgysk8zer0/http-server ",
   "keywords": [],
   "type": "module",
   "exports": {
     "./*.js": {
       "import": "./*.js"
+    },
+    "./cache": {
+      "import": "./cache.js"
+    },
+    "./compression": {
+      "import": "./compression.js"
+    },
+    "./cors": {
+      "import": "./cors.js"
+    },
+    "./csp": {
+      "import": "./csp.js"
+    },
+    "./geo": {
+      "import": "./geo.js"
+    },
+    "./logger": {
+      "import": "./logger.js"
+    },
+    "./rate-limit": {
+      "import": "./rate-limit.js"
+    },
+    "./request-id": {
+      "import": "./request-id.js"
     },
     "./*.mjs": {
       "import": "./*.js"

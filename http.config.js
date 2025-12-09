@@ -23,13 +23,13 @@ export default {
 	],
 	responsePostprocessors: [
 		'@aegisjsproject/http-utils/compression.js',
-		setCacheItem,
 		'@aegisjsproject/http-utils/cors.js',
 		'@aegisjsproject/http-utils/csp.js',
 		(response, { request }) => {
 			if (request.destination === 'document') {
 				response.headers.append('Link', `<${imports['@shgysk8zer0/polyfills']}>; rel="preload"; as="script"; fetchpriority="high"; crossorigin="anonymous"; referrerpolicy="no-referrer"`);
 			}
-		}
+		},
+		setCacheItem,
 	],
 };
