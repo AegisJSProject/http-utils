@@ -1,6 +1,6 @@
 {
   "name": "@aegisjsproject/http-utils",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "HTTP Utilities for @shgysk8zer0/http-server ",
   "keywords": [],
   "type": "module",
