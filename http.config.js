@@ -1,6 +1,10 @@
 import { useRateLimit } from './rate-limit.js';
 import { checkCacheItem, setCacheItem } from './cache.js';
 import { imports } from '@shgysk8zer0/importmap';
+import { addTrustedTypePolicy, addScriptSrc, useDefaultCSP } from './csp.js';
+
+addScriptSrc(imports['@shgysk8zer0/polyfills']);
+addTrustedTypePolicy('aegis-sanitizer#html');
 
 const visits = new Map();
 
@@ -24,7 +28,7 @@ export default {
 	responsePostprocessors: [
 		'@aegisjsproject/http-utils/compression.js',
 		'@aegisjsproject/http-utils/cors.js',
-		'@aegisjsproject/http-utils/csp.js',
+		useDefaultCSP(),
 		(response, { request }) => {
 			if (request.destination === 'document') {
 				response.headers.append('Link', `<${imports['@shgysk8zer0/polyfills']}>; rel="preload"; as="script"; fetchpriority="high"; crossorigin="anonymous"; referrerpolicy="no-referrer"`);
