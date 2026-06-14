@@ -26,4 +26,4 @@ HTTP Utilities for [`@shgysk8zer0/http-server`](https://www.npmjs.com/package/@s
 
 - [Code of Conduct](./.github/CODE_OF_CONDUCT.md)
 - [Contributing](./.github/CONTRIBUTING.md)
-<!-- - [Security Policy](./.github/SECURITY.md) -->
+- [Security Policy](./.github/SECURITY.md)
